@@ -496,7 +496,7 @@ const ary = (fn, n) => (...args) => fn(...args.slice(0, n));
 ```
 
 <details>
-<summary>例子</summary>
+<summary>样例</summary>
 
 ```js
 const firstTwoMax = ary(Math.max, 2);
@@ -519,7 +519,7 @@ const call = (key, ...args) => context => context[key](...args);
 ```
 
 <details>
-<summary>例子</summary>
+<summary>样例</summary>
 
 ```js
 Promise.resolve([1, 2, 3])
@@ -547,7 +547,7 @@ const collectInto = fn => (...args) => fn(args);
 ```
 
 <details>
-<summary>例子</summary>
+<summary>样例</summary>
 
 ```js
 const Pall = collectInto(Promise.all.bind(Promise));
@@ -563,17 +563,16 @@ Pall(p1, p2, p3).then(console.log); // [1, 2, 3] (after about 2 seconds)
 
 
 ### flip
+Flip将会传入一个函数作为参数，并且将传入的第一个参数置于最后一个参数位置。
 
-Flip takes a function as an argument, then makes the first argument the last.
-
-Return a closure that takes variadic inputs, and splices the last argument to make it the first argument before applying the rest.
+返回一个接收可变参数的闭包，并且拼接后续的参数,并确保他们会在应用其余参数之前，作为第一个参数传入。
 
 ```js
 const flip = fn => (first, ...rest) => fn(...rest, first);
 ```
 
 <details>
-<summary>Examples</summary>
+<summary>样例</summary>
 
 ```js
 let a = { name: 'John Smith' };
@@ -587,7 +586,7 @@ Object.assign(b, a); // == b
 
 </details>
 
-<br>[⬆ Back to top](#table-of-contents)
+<br>[⬆ 返回目录](#table-of-contents)
 
 
 ### over
